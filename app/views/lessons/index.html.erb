@@ -1,0 +1,8 @@
+<% @lessons.each do |f| %>
+	<div class = "week">
+		<div class = "date"><%= f.date %></div>
+		<div class = "exercise"><%= f.exercise %></div>
+	</div>
+<% end %>
+
+<%= render "devise/shared/links" %>
