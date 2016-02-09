@@ -2,7 +2,8 @@ class LessonsController < ApplicationController
 before_action :authenticate_user!
 
 	def index
-		@lessons = Lesson.where(:reciever_id => current_user.id)
+		@lessons = Lesson.where(:reciever_id => current_user.id).order(created_at: :desc)
+
 	end
 
 	def new

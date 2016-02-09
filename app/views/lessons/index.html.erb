@@ -1,6 +1,14 @@
 <% @lessons.each do |f| %>
-	<div class = "week">
-		<div class = "date"><%= f.date %></div>
-		<div class = "exercise"><%= f.exercise %></div>
-	</div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><%= f.date %></h3>
+          </div>
+          <div class="panel-body">
+            <%= simple_format(f.exercise) %>
+          </div>
+        </div>
+      </div>
+    </div>
 <% end %>

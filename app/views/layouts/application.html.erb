@@ -16,39 +16,27 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="#">Guitar Lessons</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <div class="navbar-form navbar-right">
             <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
             <div class="form-group">
-              <%= f.label :email %>
+              <%= f.label :email, class: "label label-default" %>
     					<%= f.email_field :email, autofocus: true %>
             </div>
             <div class="form-group">
-              <%= f.label :password %>
+              <%= f.label :password, class: "label label-default" %>
     					<%= f.password_field :password, autocomplete: "off" %>
             </div>
-            <div type="submit" class="btn btn-success"><%= f.submit "Log in" %></div>
+            <%= f.submit "Log in", type:"submit", class: "btn btn-success" %>
           	<% end %>
-          	<div class="form-group"><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></div>
+          	<div class="form-group"><%= link_to('Logout', destroy_user_session_path, :method => :delete, class: "btn btn-default btn-primary") %></div>
           </div>
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
 
-<p class="navbar-text pull-right">
-<% if user_signed_in? %>
-  Logged in as <strong><%= current_user.email %></strong>.
-  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-<% else %>
-  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-<% end %>
-
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
 
 
 <%= yield %>

@@ -10,7 +10,20 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require rails_bootstrap_forms
  */
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import 'rails_bootstrap_forms';
+
+body {
+  padding-top: 100px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+@media (max-width: 979px) {
+  body {
+    padding-top: 0px;
+  }
+}
