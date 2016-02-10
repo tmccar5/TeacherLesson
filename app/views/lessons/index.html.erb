@@ -12,3 +12,37 @@
       </div>
     </div>
 <% end %>
+
+<% if current_user.admin? %>
+  <%= form_for @lesson, :html => {:class => "form-horizontal center"} do |f| %>
+  <div class="form-group">
+    <div class="col-md-12">
+      <%= f.label :date, class: "control-label" %>
+    </div>
+    <div class="col-md-2">
+      <%= f.text_field :date, class: "form-control" %>
+    </div>
+  </div>
+ 
+  <div class="form-group">
+    <div class="col-md-12">
+      <%= f.label :exercise, class: "control-label" %>
+    </div>
+    <div class="col-md-6">
+      <%= f.text_area :exercise, class: "form-control", rows: "5"%>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-md-12">
+      <%= f.label :reciever_id, class: "control-label" %>
+    </div>
+    <div class="col-md-2">
+      <%= f.number_field :reciever_id, class: "form-control" %>
+    </div>
+  </div>
+
+
+    <%= f.submit "Create Lesson", class: "btn btn-default btn-primary" %>
+  <% end %>
+<% end %>

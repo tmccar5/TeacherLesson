@@ -3,7 +3,7 @@ before_action :authenticate_user!
 
 	def index
 		@lessons = Lesson.where(:reciever_id => current_user.id).order(created_at: :desc)
-
+		@lesson = Lesson.new
 	end
 
 	def new
@@ -17,15 +17,11 @@ before_action :authenticate_user!
 		@lesson.save
 
 		
-		redirect_to @lesson
 	end
 
 	def show
 		@lesson = Lesson.find(params[:id])
 	end
-
-
-
 
 private
 	def lesson_params

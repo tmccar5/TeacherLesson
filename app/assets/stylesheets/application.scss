@@ -17,6 +17,10 @@
 @import "bootstrap";
 @import 'rails_bootstrap_forms';
 
+.unique { 
+   background-image: url('lessons.jpg');
+}
+
 body {
   padding-top: 100px;
   padding-left: 25px;
@@ -27,3 +31,4 @@ body {
     padding-top: 0px;
   }
 }
+
