@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
+
 gem 'bootstrap_form'
 
 gem 'bootstrap-sass', '~> 3.3.6'
