@@ -25,7 +25,7 @@ before_action :authenticate_user!
 
 private
 	def lesson_params
-		params.require(:lesson).permit(:date, :exercise, :reciever_id)
+		params.require(:lesson).permit(:date, :exercise, :reciever_id, :chart)
 	end
 end
  

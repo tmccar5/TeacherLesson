@@ -10,6 +10,15 @@
           </div>
         </div>
       </div>
+      <div class="col-sm-6">
+      <% if f.chart_content_type == 'application/pdf' %>  
+      <%=link_to image_tag(f.chart.url(:thumb)), f.chart.url(:original), :popup=>['original_image', 'height=700,width=900'] %>
+
+        <!-- <iframe src=<%= f.chart.url(:original) %> frameborder="0"></iframe> -->
+      <% else %>
+        <%= "No Chart This Lesson" %>
+      <% end %>
+      </div>
     </div>
 <% end %>
 
@@ -42,6 +51,14 @@
     </div>
   </div>
 
+  <div class="form-group">
+    <div class="col-md-12">
+      <%= f.label :chart, class: "control-label" %>
+    </div>
+    <div class="col-md-2">
+      <%= f.file_field :chart, class: "form-control" %>
+    </div>
+  </div>
 
     <%= f.submit "Create Lesson", class: "btn btn-default btn-primary" %>
   <% end %>
