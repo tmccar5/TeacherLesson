@@ -20,17 +20,21 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <div class="navbar-form navbar-right">
-            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-            <div class="form-group">
-              <%= f.label :email, class: "label label-default" %>
-    					<%= f.email_field :email, autofocus: true %>
-            </div>
-            <div class="form-group">
-              <%= f.label :password, class: "label label-default" %>
-    					<%= f.password_field :password, autocomplete: "off" %>
-            </div>
-            <%= f.submit "Log in", type:"submit", class: "btn btn-success" %>
-          	<% end %>
+            <% if user_signed_in? %>
+              <div class="btn btn-success"><%= current_user.email %></div>
+            <% else %>
+              <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <div class="form-group">
+                <%= f.label :email, class: "label label-default" %>
+      					<%= f.email_field :email, autofocus: true %>
+              </div>
+              <div class="form-group">
+                <%= f.label :password, class: "label label-default" %>
+      					<%= f.password_field :password, autocomplete: "off" %>
+              </div>
+              <%= f.submit "Log in", type:"submit", class: "btn btn-success" %>
+            	<% end %>
+            <% end %>
           	<div class="form-group"><%= link_to('Logout', destroy_user_session_path, :method => :delete, class: "btn btn-default btn-primary") %></div>
           </div>
         </div><!--/.navbar-collapse -->

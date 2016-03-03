@@ -24,11 +24,10 @@
 
     <div class="form-group">
       <div class="col-md-12">
-        <%= f.label :reciever_id, class: "control-label" %>
+        <%= f.label :reciever_id, class: "control-lavel" %>
       </div>
       <div class="col-md-2">
-        <%= f.number_field :reciever_id, class: "form-control" %>
-      <p> test account is id 2 </p>
+        <%= select("lesson", "reciever_id", User.all.collect {|user| [ user.email, user.id ] }, { include_blank: true }) %>
       </div>
     </div>
 

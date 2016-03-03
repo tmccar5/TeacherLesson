@@ -1,4 +1,5 @@
 class LessonsController < ApplicationController
+before_action :find_lesson, only: [:show, :edit, :update, :destroy]
 before_action :authenticate_user!
 
 	def index
@@ -15,17 +16,21 @@ before_action :authenticate_user!
 		@lesson = Lesson.new(lesson_params)
 		@lesson.user = current_user
 		@lesson.save
-
-		
+	
 	end
 
 	def show
-		@lesson = Lesson.find(params[:id])
+		# @lesson = Lesson.find(params[:id])
 	end
 
 private
+	
 	def lesson_params
 		params.require(:lesson).permit(:date, :exercise, :reciever_id, :chart)
+	end
+
+	def find_lesson
+		@lesson = Lesson.find(params[:id])
 	end
 end
  

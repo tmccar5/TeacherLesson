@@ -1,10 +1,24 @@
-<p>
-  <strong>Date:</strong>
-  <%= @lesson.date %>
-</p>
- 
-<p>
-  <strong>Exercise:</strong>
-  <%= @lesson.exercise %>
-  yes
-</p>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= @lesson.date %></h3>
+      </div>
+      <div class="panel-body">
+        <%= simple_format(@lesson.exercise) %>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+  <% if @lesson.chart_content_type == 'application/pdf' %>  
+    <iframe src=<%= @lesson.chart.url(:original) %> frameborder="0"></iframe>
+  <% else %>
+    <%= "No Chart This Lesson" %>
+  <% end %>
+  </div>
+</div>
+
+<%= render partial: 'comments/comments', locals: {commentable: @lesson} %>
+<%= render partial: 'comments/commentsform', locals: {commentable: @lesson} %>
+
+<%= link_to "back", root_path, class: "btn btn-default" %>
