@@ -1,5 +1,10 @@
 <% @lesson.comments.each do |comment| %>
-  <div class="well">
-    <%= comment.body %>
-  </div>
+	<div class="row">
+		<div class="col-md-4">
+			<div class="well">
+			  <%= comment.body %>
+			</div>
+		</div>
+	</div>
+
 <% end %>
