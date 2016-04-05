@@ -1,0 +1,17 @@
+<% if current_user.admin?%>
+	<div class="jumbotron" style="padding-left:35px; padding-right:35px;">
+	  <h1>Welcome</h1>
+	  <p>Here is where we will be keeping track of all of your students, start by creating a new lesson</p>
+	  <p><a class="btn btn-primary btn-lg" href="<%=new_lesson_path%>">New Lesson</a></p>
+	</div>
+<%else%>
+	<div class="jumbotron" style="padding-left:35px; padding-right:35px;">
+	  <h1>Welcome <%=current_user.full_name%></h1>
+	  <p>Check out your lessons to see what you have to do for next week!</p>
+	  <p><a class="btn btn-primary btn-lg" href="<%=lessons_path%>">Your Lessons</a></p>
+	</div>
+	<blockquote class="blockquote-reverse">
+  <p>If you didn't practice with a metronome, did you really practice at all?</p>
+  <small>Every good <cite title="Source Title">Jazz Musician</cite></small>
+</blockquote>
+<%end%>

@@ -1,5 +1,5 @@
 <% if current_user.admin? %>
-  <div class="page-header">
+  <div class="page-header col-md-6" style="padding-right:35px;">
     <h1>Welcome Teach!</br>
       <small>Drop some knowledge on those kids</small></h1>
   </div>
@@ -27,7 +27,7 @@
         <%= f.label :reciever_id, class: "control-lavel" %>
       </div>
       <div class="col-md-2">
-        <%= select("lesson", "reciever_id", User.all.collect {|user| [ user.email, user.id ] }, { include_blank: true }) %>
+        <%= select("lesson", "reciever_id", User.all.collect {|user| [ user.full_name, user.id ] }, { include_blank: true }) %>
       </div>
     </div>
 
@@ -40,6 +40,6 @@
       </div>
     </div>
 
-      <%= f.submit "Create Lesson", class: "btn btn-default btn-primary" %>
+      <%= f.submit "Create Lesson", class: "btn btn-default btn-primary" %> <%= link_to "Back", lessons_teacher_path, class: "btn btn-default"%>
     <% end %>
 <% end %>

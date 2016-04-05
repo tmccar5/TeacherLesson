@@ -7,39 +7,57 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" <%= link_to "Guitar Lessons", root_path %>></a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <div class="navbar-form navbar-right">
-            <% if user_signed_in? %>
-              <div class="btn btn-success"><%= current_user.email %></div>
-            <% else %>
-              <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-              <div class="form-group">
-                <%= f.label :email, class: "label label-default" %>
-      					<%= f.email_field :email, autofocus: true %>
-              </div>
-              <div class="form-group">
-                <%= f.label :password, class: "label label-default" %>
-      					<%= f.password_field :password, autocomplete: "off" %>
-              </div>
-              <%= f.submit "Log in", type:"submit", class: "btn btn-success" %>
-            	<% end %>
-            <% end %>
-          	<div class="form-group"><%= link_to('Logout', destroy_user_session_path, :method => :delete, class: "btn btn-default btn-primary") %></div>
-          </div>
-        </div><!--/.navbar-collapse -->
+
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="<%= root_path%>">Guitar Lessons</a>
       </div>
-    </nav>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li>
+            <% if current_user && current_user.admin? %><a href="<%=lessons_teacher_path%>">All Lessons<%else%><a href="<%=lessons_path%>">Lessons<%end%><span class="sr-only">(current)</span></a></li>
+          <% if current_user && current_user.admin? %>
+          <li><a href="<%= new_lesson_path%>">New Lesson</a></li>
+          <%end%>
+         <!--  <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+              <li class="divider"></li>
+              <li><a href="#">One more separated link</a></li>
+            </ul>
+          </li> -->
+        </ul>
+        <!-- <form class="navbar-form navbar-left" role="search">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form> -->
+        <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+            <li><%= link_to current_user.email, edit_user_registration_path%></li>
+            <li><%= link_to "Logout", destroy_user_session_path, method: :delete%></li>
+          <%else%>
+            <li><%= link_to "Login", new_user_session_path%></li>
+            <li><%= link_to "Logout", destroy_user_session_path, method: :delete%></li>
+          <%end%>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
 
 
