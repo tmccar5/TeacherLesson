@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160404193904) do
+ActiveRecord::Schema.define(version: 20160412040023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20160404193904) do
     t.string   "chart_content_type"
     t.integer  "chart_file_size"
     t.datetime "chart_updated_at"
+    t.datetime "start_time"
   end
 
   add_index "lessons", ["user_id"], name: "index_lessons_on_user_id", using: :btree

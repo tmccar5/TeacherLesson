@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'simple_calendar', '~> 2.1'
+
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 
 gem 'bootstrap_form'

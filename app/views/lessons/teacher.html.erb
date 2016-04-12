@@ -10,3 +10,12 @@
 	</div>
   <% end %> 
 
+<%= month_calendar events: @lessons do |date, meetings| %>
+  <%= date %>
+
+  <% meetings.each do |meeting| %>
+    <div>
+      <%=link_to meeting.date, meeting %>
+    </div>
+  <% end %>
+<% end %>

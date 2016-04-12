@@ -40,6 +40,17 @@
       </div>
     </div>
 
+    <div class="form-group">
+      <div class="col-md-12">
+        <%= f.label :start_time, "calendar", class: "control-label" %>
+      </div>
+      <div class="col-md-2">
+        <%= f.datetime_select :start_time %>
+      </div>
+    </div>
+
       <%= f.submit "Create Lesson", class: "btn btn-default btn-primary" %> <%= link_to "Back", lessons_teacher_path, class: "btn btn-default"%>
     <% end %>
 <% end %>
+
+2016-04-05 19:46:22
