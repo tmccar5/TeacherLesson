@@ -1,0 +1,9 @@
+<%= month_calendar events: @lessons do |date, lessons| %>
+  <%= date %>
+
+  <% lessons.each do |lesson| %>
+    <div>
+      <%=link_to lesson.title, lesson %>
+    </div>
+  <% end %>
+<% end %>

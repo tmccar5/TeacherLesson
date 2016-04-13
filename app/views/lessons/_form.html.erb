@@ -3,13 +3,14 @@
     <h1>Welcome Teach!</br>
       <small>Drop some knowledge on those kids</small></h1>
   </div>
+  
     <%= form_for @lesson, :html => {:class => "form-horizontal center"} do |f| %>
     <div class="form-group">
       <div class="col-md-12">
-        <%= f.label :date, class: "control-label" %>
+        <%= f.label :title, class: "control-label" %>
       </div>
       <div class="col-md-2">
-        <%= f.text_field :date, class: "form-control" %>
+        <%= f.text_field :title, class: "form-control" %>
       </div>
     </div>
    
@@ -42,15 +43,13 @@
 
     <div class="form-group">
       <div class="col-md-12">
-        <%= f.label :start_time, "calendar", class: "control-label" %>
+        <%= f.label :start_time, "Lesson Date", class: "control-label" %>
       </div>
       <div class="col-md-2">
         <%= f.datetime_select :start_time %>
       </div>
     </div>
 
-      <%= f.submit "Create Lesson", class: "btn btn-default btn-primary" %> <%= link_to "Back", lessons_teacher_path, class: "btn btn-default"%>
+      <%= f.submit "Create Lesson", class: "btn btn-default btn-primary" %> <%= link_to "Back", root_path, class: "btn btn-default"%>
     <% end %>
 <% end %>
-
-2016-04-05 19:46:22

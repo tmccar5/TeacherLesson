@@ -8,10 +8,10 @@
 	<div class="jumbotron" style="padding-left:35px; padding-right:35px;">
 	  <h1>Welcome <%=current_user.full_name%></h1>
 	  <p>Check out your lessons to see what you have to do for next week!</p>
-	  <p><a class="btn btn-primary btn-lg" href="<%=lessons_path%>">Your Lessons</a></p>
+	  <p><%= link_to "Your Last Lesson", @lesson %></p>
 	</div>
 	<blockquote class="blockquote-reverse">
-  <p>If you didn't practice with a metronome, did you really practice at all?</p>
-  <small>Every good <cite title="Source Title">Jazz Musician</cite></small>
-</blockquote>
+	  <p>If you didn't practice with a metronome, did you really practice at all?</p>
+	  <small>Every good <cite title="Source Title">Jazz Musician</cite></small>
+	</blockquote>
 <%end%>

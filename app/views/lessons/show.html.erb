@@ -2,7 +2,7 @@
   <div class="col-sm-6">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title"><%= @lesson.date %></h3>
+        <h3 class="panel-title"><%= @user.full_name %>'s Lesson on:</br> <%= @lesson.title %></h3>
       </div>
       <div class="panel-body">
         <%= simple_format(@lesson.exercise) %>

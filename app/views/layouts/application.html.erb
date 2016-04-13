@@ -23,29 +23,22 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li>
-            <% if current_user && current_user.admin? %><a href="<%=lessons_teacher_path%>">All Lessons<%else%><a href="<%=lessons_path%>">Lessons<%end%><span class="sr-only">(current)</span></a></li>
-          <% if current_user && current_user.admin? %>
-          <li><a href="<%= new_lesson_path%>">New Lesson</a></li>
-          <%end%>
-         <!--  <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-              <li class="divider"></li>
-              <li><a href="#">One more separated link</a></li>
-            </ul>
-          </li> -->
+            <% if current_user && current_user.admin? %>
+              <a href="<%=lessons_teacher_cal_path%>">Calendar
+            <%else%>
+              <a href="<%=lessons_student_cal_path%>">Calendar<%end%><span class="sr-only">(current)</span></a>
+          </li>
+          <li>
+            <% if current_user &&! current_user.admin? %>
+              <a href="<%= lessons_path%>">All Lesson</a>
+            <%end%>
+          </li>
+          <li>
+            <% if current_user && current_user.admin? %>
+              <a href="<%= new_lesson_path%>">New Lesson</a>
+            <%end%>
+          </li>
         </ul>
-        <!-- <form class="navbar-form navbar-left" role="search">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
-          </div>
-          <button type="submit" class="btn btn-default">Submit</button>
-        </form> -->
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
             <li><%= link_to current_user.email, edit_user_registration_path%></li>
